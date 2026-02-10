@@ -1,14 +1,16 @@
 :root {
-  --block-color: white;
-  --border-color: grey;
-  --fond: #bfbae0;
+  --fond: #e9e7f5; /* fond doux */
+  --block-color: #ffffff; /* blocs clairs */
+  --border-color: #b8b6d9; /* bordures élégantes */
+
+  --grid-padding: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fond: #1c1644;
-    --block-color: black;
-    --border-color: grey;
+    --fond: #0f1117; /* gris très sombre, légèrement bleuté */
+    --block-color: #1a1d25; /* cartes sobres et élégantes */
+    --border-color: #2f3442; /* bordures discrètes */
   }
 }
 
@@ -22,6 +24,8 @@ body {
   background-color: var(--fond);
   display: flex;
   justify-content: flex-start;
+
+  padding: var(--grid-padding);
 }
 
 .grid {
@@ -29,18 +33,20 @@ body {
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(20, 1fr);
 
-  gap: 1rem;
+  gap: 0.8rem;
 
-  height: 100vh;
-  width: 100vw;
+  height: calc(100vh - 2 * var(--grid-padding));
+  width: calc(100vw - 2 * var(--grid-padding));
 }
 
 .block {
-  background-color: var(--card-color);
-  font-size: 2rem;
   background-color: var(--block-color);
-  border: 5px solid var(--border-color);
+  font-size: 2rem;
+  border: 3px solid var(--border-color);
   text-align: center;
+  border-radius: 1.5rem;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
   grid-column: var(--grid-column);
   grid-row: var(--grid-row);
